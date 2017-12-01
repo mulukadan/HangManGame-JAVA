@@ -1,14 +1,14 @@
 import java.io.Console;
- public class HangMan {
-     private String word;
-     private String WrongAns="";
-     private String CorrectAns= "";
-     int wrongCount = 0;
-     boolean GameDone = false;
-     String Message = "";
+ public  class HangMan {
+     private static String word;
+     private static String WrongAns="";
+     private static String CorrectAns= "";
+     static int  wrongCount = 0;
+     static boolean  GameDone = false;
+     static String  Message = "";
 
-    public String CheckifMatchFound(String TheWord, String UserInput){
-      word = TheWord;
+    public static String CheckifMatchFound(String TheWord, String UserInput){
+       word = TheWord;
         CheckIfBlankCorrectAnsIsSet();
     int UserInputlength = UserInput.length();
     if(UserInputlength>1){
@@ -37,7 +37,7 @@ import java.io.Console;
     return Message;
    }
 
-   public void CheckifCHarFound(char guess){
+   public static void CheckifCHarFound(char guess){
      int index = word.indexOf(guess);
      if(index > -1){
        while (index >= 0) {
@@ -63,7 +63,7 @@ import java.io.Console;
      }
    }
 
-   public void CheckIfBlankCorrectAnsIsSet(){
+   public static void CheckIfBlankCorrectAnsIsSet(){
      if(CorrectAns.length()<1){
        int Wordlength = word.length();
        for(int i = 0; i<Wordlength; i++){
