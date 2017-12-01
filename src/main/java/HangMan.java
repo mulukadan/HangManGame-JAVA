@@ -16,11 +16,14 @@ import java.io.Console;
       if(TheWord.equals(UserInput)){
         GameOn = false;
         Message = "Won";
-        System.out.println("You " + Message);
+        wrongCount = 0;
+        // System.out.println("You " + Message);
       }else{
         GameOn = false;
         Message = "Lost";
-        System.out.println("You " + Message);
+        wrongCount = 7;
+        System.out.println(hangManImg());
+        // System.out.println("You " + Message);
       }
     }else{
       //meaning the user has typed a single Character
@@ -31,8 +34,10 @@ import java.io.Console;
         if(word.equals(CorrectAns) ){
            GameOn = false;
            Message = "Won";
+           wrongCount = 0;
          }else{
            Console myConsole = System.console();
+           System.out.println(hangManImg());
            System.out.println("Whats Correct So far:" + CorrectAns);
            System.out.println("Wrong Answers:" + WrongAns);
            System.out.println("Enter Another Character:");
@@ -41,8 +46,10 @@ import java.io.Console;
          }
 
       }
-      System.out.println("You " + Message);
+
     }
+    System.out.println(hangManImg());
+    System.out.println("You " + Message);
     return Message;
    }
 
@@ -61,9 +68,10 @@ import java.io.Console;
         UpdateWrongAns.append(" ");
         WrongAns = UpdateWrongAns.toString();
         wrongCount++;
-        if(wrongCount > 4){
+        if(wrongCount > 6){
           GameOn = false;
           Message = "Lost";
+
         }
      }
    }
@@ -75,6 +83,101 @@ import java.io.Console;
          CorrectAns = CorrectAns+"_";
        }
      }
+   }
+   public static String hangManImg(){
+    String imgLevel= "";
+     switch(wrongCount){
+
+       case 7:imgLevel =  "   ____\n" +
+                          "  |    |      \n" +
+                          "  |    o   \n" +
+                          "  |   /|\\     \n" +
+                          "  |    |\n" +
+                          "  |   / \\\n" +
+                          " _|_\n" +
+                          "|   |______\n" +
+                          "|          |\n" +
+                          "|__________|";
+
+       break;
+       case 6:imgLevel =  "   ____\n" +
+                          "  |    |      \n" +
+                          "  |    o   \n" +
+                          "  |   /|\\     \n" +
+                          "  |    |\n" +
+                          "  |   / \n" +
+                          " _|_\n" +
+                          "|   |______\n" +
+                          "|          |\n" +
+                          "|__________|";
+
+       break;
+       case 5:imgLevel =  "   ____\n" +
+                          "  |    |      \n" +
+                          "  |    o   \n" +
+                          "  |   /|\\     \n" +
+                          "  |    |\n" +
+                          "  |   \n" +
+                          " _|_\n" +
+                          "|   |______\n" +
+                          "|          |\n" +
+                          "|__________|";
+
+       break;
+       case 4:imgLevel =  "   ____\n" +
+                          "  |    |      \n" +
+                          "  |    o   \n" +
+                          "  |   /|     \n" +
+                          "  |    |\n" +
+                          "  |     \n" +
+                          " _|_\n" +
+                          "|   |______\n" +
+                          "|          |\n" +
+                          "|__________|";
+
+       break;
+       case 3:imgLevel =  "   ____\n" +
+                          "  |    |      \n" +
+                          "  |    o   \n" +
+                          "  |    |     \n" +
+                          "  |    |\n" +
+                          "  |    \n" +
+                          " _|_\n" +
+                          "|   |______\n" +
+                          "|          |\n" +
+                          "|__________|";
+
+       break;
+       case 2:imgLevel =  "   ____\n" +
+                          "  |    |      \n" +
+                          "  |    o   \n" +
+                          "  |    |     \n" +
+                          "  |    \n" +
+                          "  |    \n" +
+                          " _|_\n" +
+                          "|   |______\n" +
+                          "|          |\n" +
+                          "|__________|";
+
+       break;
+       case 1:imgLevel =  "   ____\n" +
+                          "  |    |      \n" +
+                          "  |    o   \n" +
+                          "  |         \n" +
+                          "  |    \n" +
+                          "  |   \n" +
+                          " _|_\n" +
+                          "|   |______\n" +
+                          "|          |\n" +
+                          "|__________|";
+
+       break;
+       default:
+
+       break;
+
+     }
+     return imgLevel;
    }
 
 }
