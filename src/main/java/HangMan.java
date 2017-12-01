@@ -8,13 +8,12 @@ import java.io.Console;
      static String  Message = "";
 
     public static String CheckifMatchFound(String TheWord, String UserInput){
-      // System.out.print("UserInput22:" + UserInput);
-       word = TheWord.toUpperCase();
+      word = TheWord.toUpperCase();
         CheckIfBlankCorrectAnsIsSet();
     int UserInputlength = UserInput.length();
     if(UserInputlength>1){
       //meaning the user has typed a WHOLE WORD
-      if(TheWord.equals(UserInput.toUpperCase())){
+      if(TheWord.equals(UserInput)){
         GameOn = false;
         Message = "Won";
         System.out.println("You " + Message);
@@ -25,7 +24,6 @@ import java.io.Console;
       }
     }else{
       //meaning the user has typed a single Character
-      UserInput = UserInput.toUpperCase();
       char c = UserInput.charAt(0);
       CheckifCHarFound(c);
 
@@ -38,7 +36,7 @@ import java.io.Console;
            System.out.println("Whats Correct So far:" + CorrectAns);
            System.out.println("Wrong Answers:" + WrongAns);
            System.out.println("Enter Another Character:");
-           String input = myConsole.readLine();
+           String input = myConsole.readLine().toUpperCase();
            CheckifMatchFound(word, input);
          }
 
@@ -58,8 +56,9 @@ import java.io.Console;
            CorrectAns = UpdateCorrectChars.toString();
        }
      }else{
-        StringBuilder UpdateWrongAns = new StringBuilder();
+        StringBuilder UpdateWrongAns = new StringBuilder(WrongAns);
         UpdateWrongAns.append(guess);
+        UpdateWrongAns.append(" ");
         WrongAns = UpdateWrongAns.toString();
         wrongCount++;
         if(wrongCount > 4){
