@@ -16,14 +16,14 @@ import java.io.Console;
       if(TheWord.equals(UserInput)){
         GameOn = false;
         Message = "Won";
-        wrongCount = 0;
-        // System.out.println("You " + Message);
+
+        System.out.println("You " + Message);
       }else{
         GameOn = false;
         Message = "Lost";
         wrongCount = 7;
         System.out.println(hangManImg());
-        // System.out.println("You " + Message);
+        System.out.println("You " + Message);
       }
     }else{
       //meaning the user has typed a single Character
@@ -34,12 +34,13 @@ import java.io.Console;
         if(word.equals(CorrectAns) ){
            GameOn = false;
            Message = "Won";
-           wrongCount = 0;
+           System.out.println("You " + Message);
          }else{
            Console myConsole = System.console();
            System.out.println(hangManImg());
            System.out.println("Whats Correct So far:" + CorrectAns);
            System.out.println("Wrong Answers:" + WrongAns);
+           System.out.println("");
            System.out.println("Enter Another Character:");
            String input = myConsole.readLine().toUpperCase();
            CheckifMatchFound(word, input);
@@ -48,8 +49,8 @@ import java.io.Console;
       }
 
     }
-    System.out.println(hangManImg());
-    System.out.println("You " + Message);
+    // System.out.println(hangManImg());
+    // System.out.println("You " + Message);
     return Message;
    }
 
@@ -71,6 +72,8 @@ import java.io.Console;
         if(wrongCount > 6){
           GameOn = false;
           Message = "Lost";
+          System.out.println(hangManImg());
+          System.out.println("You " + Message);
 
         }
      }
