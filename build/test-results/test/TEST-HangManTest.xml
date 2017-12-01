@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="HangManTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2017-12-01T13:33:10" hostname="kadan-HP-EliteBook-Folio-9470m" time="0.004">
+<testsuite name="HangManTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2017-12-01T13:58:12" hostname="kadan-HP-EliteBook-Folio-9470m" time="0.003">
   <properties/>
-  <testcase name="CheckifMatchFoundTest" classname="HangManTest" time="0.002"/>
-  <testcase name="CheckifCharFoundInStringTest" classname="HangManTest" time="0.0"/>
+  <testcase name="CheckifMatchFoundTest" classname="HangManTest" time="0.001"/>
+  <testcase name="CheckifCharFoundInStringTest" classname="HangManTest" time="0.001"/>
   <testcase name="CheckifStringFoundInStringTest" classname="HangManTest" time="0.0"/>
-  <system-out><![CDATA[word:mulu
-WrongAns:
-CorrectAns:____
-1
+  <system-out><![CDATA[1
 3
-word:Mulu
-WrongAns:
-CorrectAns:_u_u
-word:Mulu
-WrongAns:
-CorrectAns:____
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

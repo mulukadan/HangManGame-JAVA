@@ -8,20 +8,20 @@ public class HangManTest {
   @Test
   public void CheckifMatchFoundTest() {
     HangMan testHangMan = new HangMan();
-    boolean expectedOutput = true;
+    String expectedOutput = "Won";
     assertEquals(expectedOutput, testHangMan.CheckifMatchFound("mulu","mulu"));
   }
 
   @Test
   public void CheckifCharFoundInStringTest() {
     HangMan testHangMan = new HangMan();
-    boolean expectedOutput = false;
+    String expectedOutput = "";
     assertEquals(expectedOutput, testHangMan.CheckifMatchFound("Mulu","u"));
   }
   @Test
   public void CheckifStringFoundInStringTest() {
     HangMan testHangMan = new HangMan();
-    boolean expectedOutput = false;
+    String expectedOutput = "Lost";
     assertEquals(expectedOutput, testHangMan.CheckifMatchFound("Mulu","Mu"));
   }
 
