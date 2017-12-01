@@ -19,6 +19,7 @@ import java.io.Console;
       }else{
         GameDone = true;
         Message = "Lost";
+        System.out.println("You " + Message);
       }
     }else{
       //meaning the user has typed a single Character
@@ -32,8 +33,8 @@ import java.io.Console;
         String input = myConsole.readLine();
         CheckifMatchFound(word, input);
       }
+      System.out.println("You " + Message);
     }
-
     return Message;
    }
 
@@ -41,7 +42,6 @@ import java.io.Console;
      int index = word.indexOf(guess);
      if(index > -1){
        while (index >= 0) {
-           System.out.println(index);
            StringBuilder UpdateCorrectChars = new StringBuilder(CorrectAns);
            UpdateCorrectChars.setCharAt(index, guess);
            index = word.indexOf(guess, index + 1);
