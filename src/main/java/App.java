@@ -8,8 +8,9 @@ public class App{
     System.out.println("4 Letter Word");
     System.out.println("_ _ _ _");
     System.out.println("Enter a Character:");
-    String input = myConsole.readLine();
-    hangMan.CheckifMatchFound("Mulu", input);
+    String input = myConsole.readLine().toUpperCase();
+    
+    hangMan.CheckifMatchFound("MULU", input);
 
   }
 

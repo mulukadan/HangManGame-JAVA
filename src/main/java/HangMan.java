@@ -4,34 +4,44 @@ import java.io.Console;
      private static String WrongAns="";
      private static String CorrectAns= "";
      static int  wrongCount = 0;
-     static boolean  GameDone = false;
+     static boolean  GameOn = true;
      static String  Message = "";
 
     public static String CheckifMatchFound(String TheWord, String UserInput){
-       word = TheWord;
+      // System.out.print("UserInput22:" + UserInput);
+       word = TheWord.toUpperCase();
         CheckIfBlankCorrectAnsIsSet();
     int UserInputlength = UserInput.length();
     if(UserInputlength>1){
       //meaning the user has typed a WHOLE WORD
-      if(TheWord == UserInput){
-        GameDone = true;
+      if(TheWord.equals(UserInput.toUpperCase())){
+        GameOn = false;
         Message = "Won";
+        System.out.println("You " + Message);
       }else{
-        GameDone = true;
+        GameOn = false;
         Message = "Lost";
         System.out.println("You " + Message);
       }
     }else{
       //meaning the user has typed a single Character
+      UserInput = UserInput.toUpperCase();
       char c = UserInput.charAt(0);
       CheckifCHarFound(c);
-      while(GameDone==false){
-        Console myConsole = System.console();
-        System.out.println("Whats Correct So far:" + CorrectAns);
-        System.out.println("Wrong Answers:" + WrongAns);
-        System.out.println("Enter Another Character:");
-        String input = myConsole.readLine();
-        CheckifMatchFound(word, input);
+
+      while(GameOn){
+        if(word.equals(CorrectAns) ){
+           GameOn = false;
+           Message = "Won";
+         }else{
+           Console myConsole = System.console();
+           System.out.println("Whats Correct So far:" + CorrectAns);
+           System.out.println("Wrong Answers:" + WrongAns);
+           System.out.println("Enter Another Character:");
+           String input = myConsole.readLine();
+           CheckifMatchFound(word, input);
+         }
+
       }
       System.out.println("You " + Message);
     }
@@ -46,18 +56,14 @@ import java.io.Console;
            UpdateCorrectChars.setCharAt(index, guess);
            index = word.indexOf(guess, index + 1);
            CorrectAns = UpdateCorrectChars.toString();
-            if(word == CorrectAns){
-               GameDone = true;
-               Message = "Won";
-             }
        }
      }else{
         StringBuilder UpdateWrongAns = new StringBuilder();
         UpdateWrongAns.append(guess);
         WrongAns = UpdateWrongAns.toString();
         wrongCount++;
-        if(wrongCount > 5){
-          GameDone = true;
+        if(wrongCount > 4){
+          GameOn = false;
           Message = "Lost";
         }
      }
